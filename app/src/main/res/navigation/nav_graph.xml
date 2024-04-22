@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/storeListFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/storeListFragment"
         android:name="com.rmb.bitirmeprojesi.presentation.store.StoreListFragment"
         android:label="fragment_store_list"
         tools:layout="@layout/fragment_store_list" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.rmb.bitirmeprojesi.presentation.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_storeListFragment"
+            app:destination="@id/storeListFragment" />
+    </fragment>
 </navigation>

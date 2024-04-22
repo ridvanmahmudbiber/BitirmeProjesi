@@ -7,4 +7,5 @@ data class StoreModel(
     val discountedPrice : String,
     val discountRemaining: Long,
     val storeName: String,
+    val productImage: Int,
 )

@@ -5,11 +5,18 @@ import android.graphics.BitmapFactory
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.rmb.bitirmeprojesi.databinding.StoreCardItemBinding
 import com.rmb.bitirmeprojesi.model.StoreModel
+import com.rmb.bitirmeprojesi.presentation.login.LoginFragmentDirections
+import com.rmb.bitirmeprojesi.presentation.store.StoreItemClickListener
 
-class StoreAdapter(val storeList: List<StoreModel>) :
+class StoreAdapter(
+    val storeList: List<StoreModel>,
+    private val storeItemClickListener: StoreItemClickListener
+) :
     RecyclerView.Adapter<StoreAdapter.StoreHolder>() {
 
     class StoreHolder(val binding: StoreCardItemBinding) :
@@ -30,24 +37,32 @@ class StoreAdapter(val storeList: List<StoreModel>) :
         holder.binding.tvStandartPrice.text = storeList[position].standardPrice
         holder.binding.tvDiscountPrice.text = storeList[position].discountedPrice
         holder.binding.tvStoreName.text = storeList[position].storeName
-        holder.binding.ivStoreImage.setImageBitmap(getResizedBitmap(BitmapFactory.decodeResource(holder.itemView.resources,storeList[position].productImage),1024))
+        holder.binding.ivStoreImage.setImageBitmap(
+            getResizedBitmap(
+                BitmapFactory.decodeResource(
+                    holder.itemView.resources,
+                    storeList[position].productImage
+                ), 1024
+            )
+        )
 
-        downTimerForDiscount(storeList[position].discountRemaining,holder)
+        downTimerForDiscount(storeList[position].discountRemaining, holder)
 
-        //holder.itemView.setOnClickListener {
-        //    val intent = Intent(holder.itemView.context, MainActivity::class.java)
-        //    intent.putExtra("landmark", landmarkList.get(position))
-        //    holder.itemView.context.startActivity(intent)
-        //}
+        holder.itemView.setOnClickListener {
+
+            storeItemClickListener.onItemClick()
+
+        }
 
     }
+
 
     override fun getItemCount(): Int {
         return storeList.size
     }
 
-    private fun downTimerForDiscount(discountRemaining: Long, holder: StoreHolder){
-        val timer = object: CountDownTimer(discountRemaining, 1000) {
+    private fun downTimerForDiscount(discountRemaining: Long, holder: StoreHolder) {
+        val timer = object : CountDownTimer(discountRemaining, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val hours = millisUntilFinished / (1000 * 60 * 60)
                 val minutes = (millisUntilFinished % (1000 * 60 * 60)) / (1000 * 60)
@@ -62,6 +77,7 @@ class StoreAdapter(val storeList: List<StoreModel>) :
         }
         timer.start()
     }
+
     fun getResizedBitmap(image: Bitmap, maxSize: Int): Bitmap {
         var width = image.width
         var height = image.height

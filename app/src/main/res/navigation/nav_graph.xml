@@ -9,7 +9,11 @@
         android:id="@+id/storeListFragment"
         android:name="com.rmb.bitirmeprojesi.presentation.store.StoreListFragment"
         android:label="fragment_store_list"
-        tools:layout="@layout/fragment_store_list" />
+        tools:layout="@layout/fragment_store_list" >
+        <action
+            android:id="@+id/action_storeListFragment_to_storeDetailFragment"
+            app:destination="@id/storeDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.rmb.bitirmeprojesi.presentation.login.LoginFragment"
@@ -18,5 +22,18 @@
         <action
             android:id="@+id/action_loginFragment_to_storeListFragment"
             app:destination="@id/storeListFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.rmb.bitirmeprojesi.presentation.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/storeDetailFragment"
+        android:name="com.rmb.bitirmeprojesi.presentation.storedetail.StoreDetailFragment"
+        android:label="fragment_story_detail"
+        tools:layout="@layout/fragment_story_detail" />
 </navigation>

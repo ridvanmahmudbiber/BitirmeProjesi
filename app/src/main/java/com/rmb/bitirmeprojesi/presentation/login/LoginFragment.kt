@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.rmb.bitirmeprojesi.R
 import com.rmb.bitirmeprojesi.databinding.FragmentLoginBinding
 import com.rmb.bitirmeprojesi.databinding.FragmentStoreListBinding
+import com.rmb.bitirmeprojesi.presentation.register.RegisterFragment
 import com.rmb.bitirmeprojesi.presentation.store.StoreListFragment
 
 class LoginFragment : Fragment(){
@@ -28,6 +29,9 @@ class LoginFragment : Fragment(){
 
         binding.btnLogin.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToStoreListFragment())
+        }
+        binding.tvBeRegister.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
 
 

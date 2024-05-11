@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rmb.bitirmeprojesi.R
 import com.rmb.bitirmeprojesi.adapter.StoreAdapter
 import com.rmb.bitirmeprojesi.databinding.FragmentStoreListBinding
 import com.rmb.bitirmeprojesi.model.StoreModel
+import com.rmb.bitirmeprojesi.presentation.login.LoginFragmentDirections
 
 
 class StoreListFragment : Fragment() {
@@ -99,7 +101,13 @@ class StoreListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvStoreList.layoutManager = LinearLayoutManager(requireContext())
-        val storeAdapter = StoreAdapter(storeList)
+        val storeAdapter = StoreAdapter(storeList,
+            object : StoreItemClickListener {
+                override fun onItemClick() {
+                    findNavController().navigate(StoreListFragmentDirections.actionStoreListFragmentToStoreDetailFragment())
+                }
+            })
         binding.rvStoreList.adapter = storeAdapter
+
     }
 }

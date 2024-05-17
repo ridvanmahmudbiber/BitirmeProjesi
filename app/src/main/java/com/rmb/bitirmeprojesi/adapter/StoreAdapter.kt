@@ -2,15 +2,11 @@ package com.rmb.bitirmeprojesi.adapter
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.rmb.bitirmeprojesi.databinding.StoreCardItemBinding
 import com.rmb.bitirmeprojesi.model.StoreModel
-import com.rmb.bitirmeprojesi.presentation.login.LoginFragmentDirections
 import com.rmb.bitirmeprojesi.presentation.store.StoreItemClickListener
 
 class StoreAdapter(
@@ -31,22 +27,22 @@ class StoreAdapter(
     }
 
     override fun onBindViewHolder(holder: StoreHolder, position: Int) {
-        holder.binding.tvheaderText.text = storeList[position].productName
-        holder.binding.tvCity.text = storeList[position].storeLocation
-        holder.binding.tvOpenCloseHour.text = "Kalan İndirim Süresi: "
+        holder.binding.tvheaderText.text = storeList[position].storeName
+        holder.binding.tvCity.text = storeList[position].location
+        holder.binding.tvStoreScore.text = storeList[position].score
+        /*holder.binding.tvOpenCloseHour.text = "Kalan İndirim Süresi: "
         holder.binding.tvStandartPrice.text = storeList[position].standardPrice
-        holder.binding.tvDiscountPrice.text = storeList[position].discountedPrice
-        holder.binding.tvStoreName.text = storeList[position].storeName
+        holder.binding.tvDiscountPrice.text = storeList[position].discountedPrice */
         holder.binding.ivStoreImage.setImageBitmap(
             getResizedBitmap(
                 BitmapFactory.decodeResource(
                     holder.itemView.resources,
-                    storeList[position].productImage
+                    storeList[position].storeImage?: 0
                 ), 1024
             )
         )
 
-        downTimerForDiscount(storeList[position].discountRemaining, holder)
+        //downTimerForDiscount(storeList[position].discountRemaining, holder)
 
         holder.itemView.setOnClickListener {
 
@@ -56,12 +52,11 @@ class StoreAdapter(
 
     }
 
-
     override fun getItemCount(): Int {
         return storeList.size
     }
 
-    private fun downTimerForDiscount(discountRemaining: Long, holder: StoreHolder) {
+    /* private fun downTimerForDiscount(discountRemaining: Long, holder: StoreHolder) {
         val timer = object : CountDownTimer(discountRemaining, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val hours = millisUntilFinished / (1000 * 60 * 60)
@@ -76,7 +71,7 @@ class StoreAdapter(
             }
         }
         timer.start()
-    }
+    } */
 
     fun getResizedBitmap(image: Bitmap, maxSize: Int): Bitmap {
         var width = image.width

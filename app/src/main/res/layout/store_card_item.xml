@@ -32,41 +32,14 @@
                     android:id="@+id/ivStoreImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:alpha="0.55"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_launcher_background"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvStoreIcon"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="85dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/clFoodImage"
-                    app:layout_constraintStart_toStartOf="@+id/clFoodImage">
 
-                    <ImageView
-                        android:id="@+id/ivStoreIcon"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_launcher_background" />
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:id="@+id/tvStoreName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginBottom="6dp"
-                    android:text="Dukkan ismi"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/cvStoreIcon"
-                    app:layout_constraintStart_toEndOf="@+id/cvStoreIcon" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -76,47 +49,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="6dp"
-            android:text="Ürün İsmi"
+            android:text="Dükkan İsmi"
+            android:textStyle="bold"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCalenderView" />
 
-        <LinearLayout
-            android:id="@+id/linear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:orientation="horizontal"
-            android:paddingTop="10dp"
-            android:paddingEnd="10dp"
-            android:paddingBottom="5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvheaderText">
 
-            <ImageView
-                android:id="@+id/dateImageview"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_date" />
-
-            <TextView
-                android:id="@+id/tvOpenCloseHour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="kalan indirim süresi : "
-                android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@id/dateImageview"
-                app:layout_constraintTop_toBottomOf="@+id/tvCalenderView" />
-
-            <TextView
-                android:id="@+id/tvDiscountRemaining"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20"
-                android:textSize="10sp" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -124,83 +63,58 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingBottom="5dp"
-            app:layout_constraintStart_toStartOf="@id/linear"
-            app:layout_constraintTop_toBottomOf="@id/linear">
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="@id/tvheaderText"
+            app:layout_constraintTop_toBottomOf="@id/tvheaderText">
 
             <ImageView
                 android:id="@+id/locationImageview"
-                android:layout_width="9dp"
-                android:layout_height="9dp"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="1dp"
                 android:src="@drawable/ic_location" />
 
             <TextView
                 android:id="@+id/tvCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="2dp"
                 android:text="Konum"
-                android:textSize="10sp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@id/locationImageview"
                 app:layout_constraintTop_toBottomOf="@id/linear" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvStandartPrice"
+        <LinearLayout
+            android:id="@+id/llStar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/strike"
-            android:text="24.90 ₺"
-            android:textColor="#5C5C5C"
-            android:textSize="12sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/tvDiscountPrice"
-            app:layout_constraintEnd_toEndOf="@+id/tvDiscountPrice" />
-
-        <TextView
-            android:id="@+id/tvDiscountPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="14dp"
-            android:text="14.90 ₺"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-
-        <!--<com.google.android.material.card.MaterialCardView
-            android:id="@+id/tvCardState"
-            android:layout_width="98dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="1dp"
+            android:orientation="horizontal"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="20dp"
-            app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:layout_marginTop="6dp"
+            android:paddingBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCalenderView"
+            >
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/tvCards"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/ivStar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/like" />
 
-                <TextView
-                    android:id="@+id/tvStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Açık"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvStoreScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.5"
+                android:textStyle="bold"
 
+                android:textSize="15sp" />
+        </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -138,30 +138,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvStandartPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/strike"
-            android:text="24.90 ₺"
-            android:textColor="#5C5C5C"
-            android:textSize="14sp"
-            android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/clStoreImage" />
-
-        <TextView
-            android:id="@+id/tvDiscountPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="14.90 ₺"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/tvStandartPrice"
-            app:layout_constraintTop_toBottomOf="@+id/tvStandartPrice" />
 
         <View
             android:id="@+id/view1"
@@ -181,7 +157,7 @@
             android:layout_height="28dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/ic_date"
+            android:src="@drawable/ic_location"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view1" />
 

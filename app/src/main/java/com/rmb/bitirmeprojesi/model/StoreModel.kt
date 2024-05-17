@@ -1,11 +1,11 @@
 package com.rmb.bitirmeprojesi.model
 
+import android.support.annotation.DrawableRes
+
 data class StoreModel(
-    val productName: String,
-    val storeLocation: String,
-    val standardPrice : String,
-    val discountedPrice : String,
-    val discountRemaining: Long,
-    val storeName: String,
-    val productImage: Int,
+    val storeName: String?,
+    val location: String?,
+    val score: String?,
+    @DrawableRes val storeImage: Int?,
+    val productList: List<ProductItem>?
 )

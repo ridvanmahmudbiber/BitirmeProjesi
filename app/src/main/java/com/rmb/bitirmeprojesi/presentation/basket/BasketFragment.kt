@@ -1,16 +1,13 @@
 package com.rmb.bitirmeprojesi.presentation.basket
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.rmb.bitirmeprojesi.R
 import com.rmb.bitirmeprojesi.databinding.FragmentBasketBinding
-import com.rmb.bitirmeprojesi.databinding.FragmentStoryDetailBinding
 import com.rmb.bitirmeprojesi.presentation.SharedViewModel
 import kotlinx.coroutines.flow.collectLatest
 

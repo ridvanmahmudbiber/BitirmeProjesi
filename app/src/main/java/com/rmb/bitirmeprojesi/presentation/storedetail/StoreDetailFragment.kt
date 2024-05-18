@@ -1,22 +1,21 @@
 package com.rmb.bitirmeprojesi.presentation.storedetail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.rmb.bitirmeprojesi.R
 import com.rmb.bitirmeprojesi.adapter.ProductAdapter
-import com.rmb.bitirmeprojesi.databinding.FragmentStoryDetailBinding
+import com.rmb.bitirmeprojesi.databinding.FragmentStoreDetailBinding
 import com.rmb.bitirmeprojesi.model.ProductItem
 import com.rmb.bitirmeprojesi.presentation.SharedViewModel
 
 class StoreDetailFragment : Fragment() {
-    private var _binding: FragmentStoryDetailBinding? = null
+    private var _binding: FragmentStoreDetailBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var sharedViewModel: SharedViewModel
@@ -32,7 +31,7 @@ class StoreDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentStoryDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentStoreDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 

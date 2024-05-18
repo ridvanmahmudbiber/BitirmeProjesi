@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/asd"
+        android:icon="@drawable/baseline_person_24"
+        android:title="Profil" />
+
+    <item
+        android:id="@+id/storeListFragment"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Ana Sayfa" />
+
+    <item
+        android:id="@+id/basketFragment"
+        android:icon="@drawable/baseline_shopping_basket_24"
+        android:title="Sepet" />
+
+</menu>

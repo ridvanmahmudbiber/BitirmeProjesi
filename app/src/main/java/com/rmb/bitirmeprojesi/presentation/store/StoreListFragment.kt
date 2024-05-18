@@ -655,8 +655,10 @@ class StoreListFragment : Fragment() {
         binding.rvStoreList.layoutManager = LinearLayoutManager(requireContext())
         val storeAdapter = StoreAdapter(storeList,
             object : StoreItemClickListener {
-                override fun onItemClick() {
-                    findNavController().navigate(StoreListFragmentDirections.actionStoreListFragmentToStoreDetailFragment())
+                override fun onItemClick(storeItem: StoreModel) {
+                    findNavController().navigate(
+                        StoreListFragmentDirections.actionStoreListFragmentToStoreDetailFragment(storeItem)
+                    )
                 }
             })
         binding.rvStoreList.adapter = storeAdapter

@@ -46,7 +46,7 @@ class StoreAdapter(
 
         holder.itemView.setOnClickListener {
 
-            storeItemClickListener.onItemClick()
+            storeItemClickListener.onItemClick(storeList[position])
 
         }
 

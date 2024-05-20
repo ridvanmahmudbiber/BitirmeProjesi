@@ -9,4 +9,7 @@ data class StoreModel(
     val score: String?,
     @DrawableRes val storeImage: Int?,
     val productList: List<ProductItem>?,
+    val content: String?,
+    val address: String?,
+    val discountRemaining: Long,
 ):Serializable

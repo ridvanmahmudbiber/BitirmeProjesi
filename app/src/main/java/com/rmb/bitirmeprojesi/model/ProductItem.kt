@@ -4,7 +4,7 @@ import android.support.annotation.DrawableRes
 
 data class ProductItem(
     val productName: String?,
-    val noDiscountedPrice: Double?,
-    val discountedPrice: Double?, //indirimli
+    val noDiscountedPrice: String?,
+    val discountedPrice: String?, //indirimli
     @DrawableRes val productImage: Int
 )

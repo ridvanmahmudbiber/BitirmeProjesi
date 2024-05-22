@@ -12,9 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.rmb.bitirmeprojesi.R
 import com.rmb.bitirmeprojesi.databinding.FragmentLoginBinding
-import com.rmb.bitirmeprojesi.databinding.FragmentStoreListBinding
-import com.rmb.bitirmeprojesi.presentation.register.RegisterFragment
-import com.rmb.bitirmeprojesi.presentation.store.StoreListFragment
 
 class LoginFragment : Fragment(){
 
@@ -24,9 +21,13 @@ class LoginFragment : Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         auth = Firebase.auth
+        val guncelKullanici = auth.currentUser
+        if (guncelKullanici != null) {
+            findNavController().navigate(R.id.action_loginFragment_to_storeListFragment)
+        }
         return binding.root
     }
 
@@ -34,7 +35,15 @@ class LoginFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnLogin.setOnClickListener {
-            login()
+            if (binding.etEmail.text.toString().isEmpty()) {
+                binding.etEmail.error = "E-posta gereklidir"
+                return@setOnClickListener
+            } else if (binding.etPassword.text.toString().isEmpty()) {
+                binding.etPassword.error = "Parola gereklidir"
+                return@setOnClickListener
+            } else {
+                login()
+            }
         }
         binding.tvBeRegister.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
@@ -46,10 +55,10 @@ class LoginFragment : Fragment(){
         auth.signInWithEmailAndPassword(binding.etEmail.text.toString(), binding.etPassword.text.toString())
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val guncelKullanıcı = auth.currentUser?.email.toString()
+                    val guncelKullanici = auth.currentUser?.email.toString()
                     Toast.makeText(
                         requireContext(),
-                        "Hoşgeldin: $guncelKullanıcı",
+                        "Hoşgeldin: $guncelKullanici",
                         Toast.LENGTH_SHORT
                     ).show()
                     findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToStoreListFragment())

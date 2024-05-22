@@ -32,7 +32,11 @@
         android:id="@+id/registerFragment"
         android:name="com.rmb.bitirmeprojesi.presentation.register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_storeListFragment"
+            app:destination="@id/storeListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/storeDetailFragment"
         android:name="com.rmb.bitirmeprojesi.presentation.storedetail.StoreDetailFragment"
@@ -56,5 +60,9 @@
         android:id="@+id/profileFragment"
         android:name="com.rmb.bitirmeprojesi.presentation.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

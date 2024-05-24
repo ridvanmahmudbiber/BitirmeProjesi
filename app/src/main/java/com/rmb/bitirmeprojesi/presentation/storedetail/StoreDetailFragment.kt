@@ -49,6 +49,7 @@ class StoreDetailFragment : Fragment() {
             tvRatingPoint.text = args.storeItem.score
             tvWhatCouldGetDesc.text = args.storeItem.content
             tvOpenCloseHour.text= args.storeItem.openClosedHour
+            tvStoreName.text = args.storeItem.storeName
         }
     }
 

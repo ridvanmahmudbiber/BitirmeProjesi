@@ -24,42 +24,25 @@
                 android:id="@+id/ivStoreImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:alpha="0.4"
+                android:alpha="0.6"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cvStoreIcon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginBottom="18dp"
-                app:cardCornerRadius="85dp"
-                app:layout_constraintBottom_toBottomOf="@+id/clStoreImage"
-                app:layout_constraintStart_toStartOf="@+id/clStoreImage">
-
-                <ImageView
-                    android:id="@+id/ivStoreIcon"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background" />
-            </androidx.cardview.widget.CardView>
-
             <TextView
                 android:id="@+id/tvStoreName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:text="Dukkan ismi"
-                android:textColor="#5C5C5C"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/cvStoreIcon"
-                app:layout_constraintStart_toEndOf="@+id/cvStoreIcon"
-                app:layout_constraintTop_toTopOf="@+id/cvStoreIcon" />
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -78,17 +61,17 @@
 
             <ImageView
                 android:id="@+id/dateImageview"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_date" />
+                android:src="@drawable/hour" />
 
             <TextView
                 android:id="@+id/tvOpenCloseHourTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="acilis/kapanis : "
+                android:text="Açılış/Kapanış: "
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@id/dateImageview"
                 app:layout_constraintTop_toBottomOf="@+id/tvCalenderView" />
@@ -144,11 +127,11 @@
 
         <ImageView
             android:id="@+id/ivLocation"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/ic_date"
+            android:src="@drawable/ic_location"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view1" />
 
@@ -156,7 +139,7 @@
             android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:text="Restorant adresi"
             android:textSize="16sp"

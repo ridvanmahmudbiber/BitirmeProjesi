@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="200dp"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="15dp"
+    android:layout_marginStart="15dp"
     android:layout_marginVertical="10dp"
     android:layout_marginBottom="12dp"
     app:cardCornerRadius="12dp">
@@ -38,21 +38,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/tvProductName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginEnd="10dp"
-                    android:textStyle="bold"
-                    android:text="Yemek ismi"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivProductImage"
-                    app:layout_constraintStart_toStartOf="@+id/ivProductImage" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="Yemek ismi"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvCalenderView"
+            app:layout_constraintTop_toBottomOf="@+id/tvCalenderView" />
 
         <TextView
             android:id="@+id/tvNoDiscountPrice"
@@ -60,15 +64,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="2dp"
-            android:layout_marginStart="10dp"
             android:background="@drawable/strike"
             android:text="24.90 ₺"
             android:textColor="#5C5C5C"
             android:textSize="12sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/tvDiscountPrice"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCalenderView" />
+            app:layout_constraintStart_toStartOf="@+id/tvProductName"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
 
         <TextView
             android:id="@+id/tvDiscountPrice"
@@ -92,10 +95,12 @@
             android:backgroundTint="@color/blue"
             android:drawableBottom="@drawable/ic_add_24"
             android:drawableTint="@color/white"
-            android:gravity="center"
             android:foregroundGravity="center"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+            app:layout_constraintVertical_bias="1.0" />
 
         <!-- <com.google.android.material.button.MaterialButton
              android:layout_width="40dp"

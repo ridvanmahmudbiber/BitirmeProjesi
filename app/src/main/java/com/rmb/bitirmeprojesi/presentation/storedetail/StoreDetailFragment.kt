@@ -38,8 +38,18 @@ class StoreDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.ivStoreImage.setImageResource(args.storeItem.storeImage!!)
+        populateUI()
         setupRecyclerView()
+    }
+
+    private fun populateUI(){
+        with(binding){
+            ivStoreImage.setImageResource(args.storeItem.storeImage!!)
+            tvLocation.text = args.storeItem.address
+            tvRatingPoint.text = args.storeItem.score
+            tvWhatCouldGetDesc.text = args.storeItem.content
+            tvOpenCloseHour.text= args.storeItem.openClosedHour
+        }
     }
 
     private fun setupRecyclerView() {

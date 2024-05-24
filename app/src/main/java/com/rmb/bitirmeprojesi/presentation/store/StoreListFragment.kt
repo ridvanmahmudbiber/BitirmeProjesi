@@ -60,7 +60,8 @@ class StoreListFragment : Fragment() {
             ),
             content = "Ev Yemekleri, Tatlı, Tavuk",
             address = "Gültepe Mah. Farabi Cad. İva Park No:22",
-            discountRemaining = 2000000
+            discountRemaining = 2000000,
+            openClosedHour = "09:00 - 22:00"
         ),
         StoreModel(
             storeName = "Livam Pastanesi",
@@ -113,7 +114,8 @@ class StoreListFragment : Fragment() {
             ),
             content = "Pastane & Fırın",
             address = "Kılavuz mahallesi Emir Paşa Cad. No:76",
-            discountRemaining = 3000000
+            discountRemaining = 3000000,
+            openClosedHour = "09:00 - 21:00"
         ),
         StoreModel(
             storeName = "Çiğ Köfteci Ömer Usta",
@@ -148,7 +150,8 @@ class StoreListFragment : Fragment() {
             ),
             content = "Çiğ Köfte",
             address = "Yahya Bey Cd. Kızılırmak, Yahya Bey Cd., 58070",
-            discountRemaining = 3000000
+            discountRemaining = 3000000,
+            openClosedHour = "08:00 - 23:00"
         ),
         StoreModel(
             storeName = "Kampüs Pilav",
@@ -189,7 +192,8 @@ class StoreListFragment : Fragment() {
             ),
             content = "Kebap & Türk Mutfağı, Pilav",
             address = "Eğri Köprü Mh. İsmet Yılmaz Bulv. No:52",
-            discountRemaining = 2000000
+            discountRemaining = 2000000,
+            openClosedHour = "08:00 - 21:00"
         ),
         StoreModel(
             storeName = "Albatros Cafe & Restaurant",
@@ -248,7 +252,8 @@ class StoreListFragment : Fragment() {
             ),
             content = "Dünya Mutfağı, Kebap & Türk Mutfağı",
             address = "Cumhuriyet Üniversitesi Vakıf Çarşısı No:15",
-            discountRemaining = 3000000
+            discountRemaining = 3000000,
+            openClosedHour = "09:00 - 21:00"
         ),
         StoreModel(
             storeName = "Coffy",
@@ -379,7 +384,8 @@ class StoreListFragment : Fragment() {
             ),
             content = "Kahve, Sandviç, Tatlı, Kruvasan",
             address = "Yenişehir Mah. Dr. Rahmi Karahasan Cad. 52. Sok No:2",
-            discountRemaining = 4000000
+            discountRemaining = 4000000,
+            openClosedHour = "09:00 - 22:00"
         ),
         StoreModel(
             storeName = "Hamur Abla Ev Yemekleri",
@@ -456,7 +462,8 @@ class StoreListFragment : Fragment() {
             ),
             content = "Ev Yemekleri, Kebap & Türk Mutfağı",
             address = "Sularbaşı Mah.İmam Hatip Sok.No:1",
-            discountRemaining = 3000000
+            discountRemaining = 3000000,
+            openClosedHour = "09:00 - 21:00"
         ),
         StoreModel(
             storeName = "Beşler Pastanesi",
@@ -551,7 +558,8 @@ class StoreListFragment : Fragment() {
             ),
             content = "Pastane & Fırın, Tatlı",
             address = "Emek Mah. Zafer Cad. No:23/A",
-            discountRemaining = 4000000
+            discountRemaining = 4000000,
+            openClosedHour = "07:00 - 21:00"
         ),
         StoreModel(
             storeName = "Sema Hanım'ın Yeri",
@@ -604,7 +612,8 @@ class StoreListFragment : Fragment() {
             ),
             content = "Ev Yemekleri, Mantı",
             address = "Örtülüpınar Mah. Reşat Şemsettin Firer Sokak No: 7",
-            discountRemaining = 3000000
+            discountRemaining = 3000000,
+            openClosedHour = "09:00 - 21:00"
         ),
         StoreModel(
             storeName = "Cafe Standart",
@@ -663,7 +672,8 @@ class StoreListFragment : Fragment() {
             ),
             content = "Dünya Mutfağı, Kahvaltı & Börek, Tost & Sandviç",
             address = "Örtülüpınar Mah. Ağca bölge Sok. 6/A",
-            discountRemaining = 5000000
+            discountRemaining = 5000000,
+            openClosedHour = "09:00 - 20:00"
         ),
     )
 

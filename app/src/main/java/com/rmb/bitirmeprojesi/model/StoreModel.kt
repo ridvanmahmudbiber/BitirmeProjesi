@@ -12,4 +12,5 @@ data class StoreModel(
     val content: String?,
     val address: String?,
     val discountRemaining: Long,
+    val openClosedHour: String?,
 ):Serializable

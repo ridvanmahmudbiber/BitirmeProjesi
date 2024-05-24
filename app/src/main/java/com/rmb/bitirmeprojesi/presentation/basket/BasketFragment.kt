@@ -7,7 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import com.rmb.bitirmeprojesi.adapter.BasketAdapter
 import com.rmb.bitirmeprojesi.databinding.FragmentBasketBinding
+import com.rmb.bitirmeprojesi.model.ProductItem
 import com.rmb.bitirmeprojesi.presentation.SharedViewModel
 import kotlinx.coroutines.flow.collectLatest
 
@@ -34,9 +38,52 @@ class BasketFragment : Fragment() {
         lifecycleScope.launchWhenCreated {
             viewModelShared.sharedFlow.collectLatest {
                 //Data or the word 'Hello' sent from Fragment A not being Received Here
-                 it
+                populateUI(it)
+                setupRecycyler(it)
             }
         }
 
+    }
+
+    private fun populateUI(productList: List<ProductItem>?) {
+        var totalPrice: Double = 0.0
+        productList?.forEach {
+            val stringPrice = it.discountedPrice?.replace(" TL", "")
+            totalPrice += stringPrice?.toDouble() ?: 0.0
+        }
+        with(binding) {
+            if (productList.isNullOrEmpty().not()){
+                tvTotalPrice.text = totalPrice.toString()
+            }else{
+                setGoneViews()
+                llEmptyState.visibility = View.VISIBLE
+            }
+
+            btnBasketApprove.setOnClickListener {
+                Snackbar.make(
+                    requireView(),
+                    "Siparişiniz hazırlanıyor!",
+                    Snackbar.LENGTH_SHORT
+                ).setAction("Action", null).show()
+                setGoneViews()
+                llEmptyState.visibility = View.VISIBLE
+                viewModelShared.sendData(null)
+            }
+        }
+    }
+
+    private fun setupRecycyler(productList: List<ProductItem>?) {
+        binding.rvProducts.layoutManager = LinearLayoutManager(requireContext())
+        val storeAdapter = BasketAdapter(productList)
+        binding.rvProducts.adapter = storeAdapter
+    }
+
+    private fun setGoneViews(){
+        with(binding){
+            btnBasketApprove.visibility = View.GONE
+            rvProducts.visibility = View.GONE
+            llTotalPrice.visibility = View.GONE
+            view.visibility = View.GONE
+        }
     }
 }

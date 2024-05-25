@@ -2,6 +2,7 @@ package com.rmb.bitirmeprojesi.adapter
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -42,8 +43,6 @@ class StoreAdapter(
             )
         )
 
-        //downTimerForDiscount(storeList[position].discountRemaining, holder)
-
         holder.itemView.setOnClickListener {
 
             storeItemClickListener.onItemClick(storeList[position])
@@ -55,23 +54,6 @@ class StoreAdapter(
     override fun getItemCount(): Int {
         return storeList.size
     }
-
-    /* private fun downTimerForDiscount(discountRemaining: Long, holder: StoreHolder) {
-        val timer = object : CountDownTimer(discountRemaining, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                val hours = millisUntilFinished / (1000 * 60 * 60)
-                val minutes = (millisUntilFinished % (1000 * 60 * 60)) / (1000 * 60)
-                val seconds = ((millisUntilFinished % (1000 * 60 * 60)) % (1000 * 60) / 1000)
-                holder.binding.tvDiscountRemaining.text = "$hours:$minutes:$seconds"
-            }
-
-            override fun onFinish() {
-                holder.binding.tvDiscountRemaining.text = ""
-                holder.binding.tvOpenCloseHour.text = "İndirimin süresi doldu."
-            }
-        }
-        timer.start()
-    } */
 
     fun getResizedBitmap(image: Bitmap, maxSize: Int): Bitmap {
         var width = image.width

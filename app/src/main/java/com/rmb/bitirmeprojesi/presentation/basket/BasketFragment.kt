@@ -14,6 +14,8 @@ import com.rmb.bitirmeprojesi.databinding.FragmentBasketBinding
 import com.rmb.bitirmeprojesi.model.ProductItem
 import com.rmb.bitirmeprojesi.presentation.SharedViewModel
 import kotlinx.coroutines.flow.collectLatest
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 
 class BasketFragment : Fragment() {
@@ -46,14 +48,15 @@ class BasketFragment : Fragment() {
     }
 
     private fun populateUI(productList: List<ProductItem>?) {
-        var totalPrice: Double = 0.0
+        var totalPrice = 0.0
         productList?.forEach {
             val stringPrice = it.discountedPrice?.replace(" TL", "")
             totalPrice += stringPrice?.toDouble() ?: 0.0
         }
         with(binding) {
             if (productList.isNullOrEmpty().not()){
-                tvTotalPrice.text = totalPrice.toString()
+                val bigDecimal = BigDecimal(totalPrice).setScale(2, RoundingMode.HALF_EVEN)
+                tvTotalPrice.text = bigDecimal.toString()
             }else{
                 setGoneViews()
                 llEmptyState.visibility = View.VISIBLE

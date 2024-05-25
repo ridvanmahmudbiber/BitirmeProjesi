@@ -1,6 +1,7 @@
 package com.rmb.bitirmeprojesi.presentation.storedetail
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.rmb.bitirmeprojesi.adapter.ProductAdapter
+import com.rmb.bitirmeprojesi.adapter.StoreAdapter
 import com.rmb.bitirmeprojesi.databinding.FragmentStoreDetailBinding
 import com.rmb.bitirmeprojesi.model.ProductItem
 import com.rmb.bitirmeprojesi.presentation.SharedViewModel
@@ -40,6 +42,7 @@ class StoreDetailFragment : Fragment() {
 
         populateUI()
         setupRecyclerView()
+        downTimerForDiscount(args.storeItem.discountRemaining)
     }
 
     private fun populateUI(){
@@ -77,4 +80,22 @@ class StoreDetailFragment : Fragment() {
             setHasFixedSize(true)
         }
     }
+
+    private fun downTimerForDiscount(discountRemaining: Long) {
+        val timer = object : CountDownTimer(discountRemaining, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val hours = millisUntilFinished / (1000 * 60 * 60)
+                val minutes = (millisUntilFinished % (1000 * 60 * 60)) / (1000 * 60)
+                val seconds = ((millisUntilFinished % (1000 * 60 * 60)) % (1000 * 60) / 1000)
+                binding.discountOpenCloseHour.text = "$hours:$minutes:$seconds"
+            }
+
+            override fun onFinish() {
+                binding.discountOpenCloseHour.text = ""
+                binding.tvOpenCloseHour.text = "İndirimin süresi doldu."
+            }
+        }
+        timer.start()
+    }
+
 }

@@ -31,13 +31,13 @@ class StoreListFragment : Fragment() {
                     productName = "Ekmek Kadayıfı (250 gr.)",
                     noDiscountedPrice = "75.00 TL",
                     discountedPrice = "59.99 TL",
-                    productImage = R.drawable.fistikli_baklava
+                    productImage = R.drawable.ekmek_kadayifi
                 ),
                 ProductItem(
                     productName = "Cevizli Midye (250 kg.)",
                     noDiscountedPrice = "116.00 TL",
                     discountedPrice = "89.99 TL",
-                    productImage = R.drawable.fistikli_baklava
+                    productImage = R.drawable.cevizli_midye
                 ),
                 ProductItem(
                     productName = "Soğuk Baklava (250 gr.)",
@@ -60,7 +60,7 @@ class StoreListFragment : Fragment() {
             ),
             content = "Ev Yemekleri, Tatlı, Tavuk",
             address = "Gültepe Mah. Farabi Cad. İva Park No:22",
-            discountRemaining = 2000000,
+            discountRemaining = 5000,
             openClosedHour = "09:00 - 22:00"
         ),
         StoreModel(
@@ -121,7 +121,7 @@ class StoreListFragment : Fragment() {
             storeName = "Çiğ Köfteci Ömer Usta",
             location = "Sivas Merkez (2.6 km)",
             score = "4.4 (500+)",
-            storeImage = R.drawable.ekler,
+            storeImage = R.drawable.cigkofte,
             productList = listOf(
                 ProductItem(
                     productName = "Çiğ Köfte (250 gr.)",
@@ -680,7 +680,6 @@ class StoreListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -688,7 +687,6 @@ class StoreListFragment : Fragment() {
         _binding = FragmentStoreListBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -700,8 +698,7 @@ class StoreListFragment : Fragment() {
                         StoreListFragmentDirections.actionStoreListFragmentToStoreDetailFragment(storeItem)
                     )
                 }
-            })
+            }, requireContext())
         binding.rvStoreList.adapter = storeAdapter
-
     }
 }

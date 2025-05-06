@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.rmb.bitirmeprojesi.R
 import com.rmb.bitirmeprojesi.adapter.ProductAdapter
 import com.rmb.bitirmeprojesi.adapter.StoreAdapter
 import com.rmb.bitirmeprojesi.databinding.FragmentStoreDetailBinding
@@ -91,8 +92,8 @@ class StoreDetailFragment : Fragment() {
             }
 
             override fun onFinish() {
-                binding.discountOpenCloseHour.text = ""
-                binding.tvOpenCloseHour.text = "İndirimin süresi doldu."
+                binding.discountOpenCloseHour.text = "İndirimin süresi doldu."
+                binding.clStoreImage.setBackgroundColor(requireContext().getColor(R.color.red))
             }
         }
         timer.start()

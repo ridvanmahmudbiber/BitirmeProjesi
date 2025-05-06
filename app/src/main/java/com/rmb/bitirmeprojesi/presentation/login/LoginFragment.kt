@@ -48,7 +48,6 @@ class LoginFragment : Fragment(){
         binding.tvBeRegister.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
-
     }
 
     private fun login() {

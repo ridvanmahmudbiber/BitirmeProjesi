@@ -39,16 +39,13 @@ class ProductAdapter(
                 ), 1024
             )
         )
-
         holder.binding.btnAddProduct.setOnClickListener {
             productItemClickListener.onAddButtonClick(productList[position])
         }
     }
-
     override fun getItemCount(): Int {
         return productList.size
     }
-
     fun getResizedBitmap(image: Bitmap, maxSize: Int): Bitmap {
         var width = image.width
         var height = image.height
@@ -61,7 +58,6 @@ class ProductAdapter(
             height = maxSize
             width = (height * bitmapRatio).toInt()
         }
-
         return Bitmap.createScaledBitmap(image, width, height, true)
     }
 }

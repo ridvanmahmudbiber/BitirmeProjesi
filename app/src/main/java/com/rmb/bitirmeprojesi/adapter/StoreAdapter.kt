@@ -1,24 +1,26 @@
 package com.rmb.bitirmeprojesi.adapter
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.rmb.bitirmeprojesi.R
 import com.rmb.bitirmeprojesi.databinding.StoreCardItemBinding
 import com.rmb.bitirmeprojesi.model.StoreModel
 import com.rmb.bitirmeprojesi.presentation.store.StoreItemClickListener
 
 class StoreAdapter(
     val storeList: List<StoreModel>,
-    private val storeItemClickListener: StoreItemClickListener
+    private val storeItemClickListener: StoreItemClickListener,
+    private val context: Context
 ) :
     RecyclerView.Adapter<StoreAdapter.StoreHolder>() {
 
     class StoreHolder(val binding: StoreCardItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreHolder {
@@ -42,7 +44,7 @@ class StoreAdapter(
                 ), 1024
             )
         )
-
+        downTimerForDiscount(storeList[position].discountRemaining,holder)
         holder.itemView.setOnClickListener {
 
             storeItemClickListener.onItemClick(storeList[position])
@@ -69,5 +71,23 @@ class StoreAdapter(
         }
 
         return Bitmap.createScaledBitmap(image, width, height, true)
+    }
+
+    private fun downTimerForDiscount(discountRemaining: Long, holder: StoreHolder){
+        val timer = object: CountDownTimer(discountRemaining, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val hours = millisUntilFinished / (1000 * 60 * 60)
+                val minutes = (millisUntilFinished % (1000 * 60 * 60)) / (1000 * 60)
+                val seconds = ((millisUntilFinished % (1000 * 60 * 60)) % (1000 * 60) / 1000)
+                holder.binding.tvDiscountRemaining.text = "$hours:$minutes:$seconds"
+            }
+
+            override fun onFinish() {
+                holder.binding.tvDiscountRemaining.text = "İndirimin süresi doldu."
+                holder.binding.mcvStoreCardItem.strokeColor = context.getColor(R.color.red)
+
+            }
+        }
+        timer.start()
     }
 }

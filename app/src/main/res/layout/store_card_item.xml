@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mcvStoreCardItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="15dp"
@@ -58,6 +59,7 @@
 
 
         <LinearLayout
+            android:id="@+id/llLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -84,6 +86,48 @@
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@id/locationImageview"
                 app:layout_constraintTop_toBottomOf="@id/linear" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/discountOpenedClosed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            app:layout_constraintStart_toStartOf="@+id/llLocation"
+            app:layout_constraintTop_toBottomOf="@+id/llLocation"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/discountImageview"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:src="@drawable/baseline_warning_24" />
+
+            <TextView
+                android:id="@+id/discountOpenCloseHourTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Kalan İndirim Süresi: "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/dateImageview"
+                app:layout_constraintTop_toBottomOf="@+id/tvCalenderView" />
+
+            <TextView
+                android:id="@+id/tvDiscountRemaining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
